@@ -11,10 +11,13 @@
       -webkit-font-smoothing: antialiased;
     }
     body {
-      padding: 10px;
+      padding: 16px;
     }
     body * {
       box-sizing: border-box;
+    }
+    strong {
+      color: #42b983;
     }
     h1.heading {
       margin: 0 0 20px;
@@ -24,14 +27,14 @@
       line-height: 1;
     }
     p.heading {
-      font: 28px/34px Georgia, "Times New Roman", Palatino, serif;
+      font: 28px/1.4 Georgia, "Times New Roman", Palatino, serif;
       text-align: center;
     }
     .container {
       max-width: 680px;
       margin-left: auto;
       margin-right: auto;
-      padding-top: 80px;
+      padding-top: 60px;
     }
     .form-field {
       margin: 20px 0;
@@ -65,13 +68,21 @@
       text-align: center;
       padding: 30px 0;
     }
+    @media (max-width: 640px) {
+      h1.heading {
+        font-size: 32px;
+      }
+      p.heading {
+        font-size: 16px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1 class="heading">Hsiaoming Yang</h1>
     {% if amount %}
-    <p class="heading">You are going to pay {{amount}} JPY to Hsiaoming Yang.</p>
+    <p class="heading">You are going to pay <strong>{{amount}}</strong> JPY for <strong>{{reason}}</strong>.</p>
     <form class="stripe-form" action="/charge" method="post">
       <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="{{key}}"
