@@ -1,4 +1,12 @@
+# coding: utf-8
+"""
+    stripe for heroku
+    ~~~~~~~~~~~~~~~~~
 
+    A simple stripe charge system on heroku
+
+    :copyright: (c) 2016 by Hsiaoming Yang
+"""
 import os
 import stripe
 from flask import Flask, request, session
