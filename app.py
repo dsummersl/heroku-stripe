@@ -2,7 +2,7 @@
 import os
 import stripe
 from flask import Flask, request, session
-from flask import render_template
+from flask import render_template, Response
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'secret')
@@ -42,3 +42,9 @@ def charge(amount):
         description=reason,
     )
     return render_template('success.html')
+
+
+@app.route('/robots.txt')
+def robots():
+    text = 'User-Agent: *\nDisallow: /\n'
+    return Response(text, mimetype='text/plain')
