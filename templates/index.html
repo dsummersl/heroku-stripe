@@ -72,7 +72,7 @@
     <h1 class="heading">Hsiaoming Yang</h1>
     {% if amount %}
     <p class="heading">You are going to pay {{amount}} JPY to Hsiaoming Yang.</p>
-    <form class="stripe-form" action="/charge/{{amount}}" method="post">
+    <form class="stripe-form" action="/charge" method="post">
       <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="{{key}}"
             data-description="{{reason}}"

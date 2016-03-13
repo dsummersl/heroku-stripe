@@ -21,6 +21,7 @@ def index():
         amount = 0
 
     session['reason'] = reason
+    session['amount'] = amount
     return render_template(
         'index.html',
         key=stripe_pub_key,
@@ -29,11 +30,12 @@ def index():
     )
 
 
-@app.route('/charge/<int:amount>', methods=['POST'])
-def charge(amount):
+@app.route('/charge', methods=['POST'])
+def charge():
     email = request.form['stripeEmail']
     token = request.form['stripeToken']
     reason = session.get('reason') or 'A Charge'
+    amount = int(session['amount'])
     stripe.Charge.create(
         receipt_email=email,
         source=token,
