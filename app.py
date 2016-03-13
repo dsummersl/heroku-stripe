@@ -2,7 +2,7 @@
 import os
 import stripe
 from flask import Flask, request, session
-from flask import render_template, Response
+from flask import render_template, Response, redirect
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'secret')
@@ -30,8 +30,10 @@ def index():
     )
 
 
-@app.route('/charge', methods=['POST'])
+@app.route('/charge', methods=['GET', 'POST'])
 def charge():
+    if request.method == 'GET':
+        return redirect('/')
     email = request.form['stripeEmail']
     token = request.form['stripeToken']
     reason = session.get('reason') or 'A Charge'
