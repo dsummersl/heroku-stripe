@@ -10,7 +10,7 @@
 import os
 import stripe
 from flask import Flask, request, session
-from flask import render_template, Response, redirect
+from flask import render_template, Response, redirect, send_from_directory
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'secret')
@@ -60,3 +60,11 @@ def charge():
 def robots():
     text = 'User-Agent: *\nDisallow: /\n'
     return Response(text, mimetype='text/plain')
+
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(
+        app.root_path, 'favicon.ico',
+        mimetype='image/vnd.microsoft.icon'
+    )
