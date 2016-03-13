@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment | Just lepture</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <style>
+    html, body {
+      margin: 0;
+      font: normal 400 18px/1.75 "Helvetica Nenu", Hevetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      padding: 10px;
+    }
+    body * {
+      box-sizing: border-box;
+    }
+    h1.heading {
+      margin: 0 0 20px;
+      font-size: 60px;
+      color: #404040;
+      text-align: center;
+      line-height: 1;
+    }
+    p.heading {
+      font: 28px/34px Georgia, "Times New Roman", Palatino, serif;
+      text-align: center;
+    }
+    .container {
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 80px;
+    }
+    .form-field {
+      margin: 20px 0;
+    }
+    .form-field label {
+      display: block;
+      color: #444;
+    }
+    .form-field input {
+      display: block;
+      padding: 5px;
+      width: 100%;
+      font: 28px/1.4 Georgia, "Times New Roman", Palatino, serif;
+      border: 1px solid #ddd;
+    }
+    .form-field button {
+      display: inline-block;
+      background-color: #42b983;
+      border: 1px solid transparent;
+      border-radius: 3px;
+      color: white;
+      padding: 6px 20px;
+      font: 600 normal 18px/32px "Helvetica Nenu", Hevetica, Arial, sans-serif;
+      cursor: pointer;
+      text-decoration: none;
+      outline: none;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .stripe-form {
+      text-align: center;
+      padding: 30px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="heading">Hsiaoming Yang</h1>
+    {% if amount %}
+    <p class="heading">You are going to pay {{amount}} JPY to Hsiaoming Yang.</p>
+    <form class="stripe-form" action="/charge/{{amount}}" method="post">
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="{{key}}"
+            data-description="{{reason}}"
+            data-currency="jpy"
+            data-amount="{{amount}}"
+            data-locale="auto">
+      </script>
+    </form>
+    {% else %}
+    <p class="heading">Pay or donate to Hsiaoming Yang with Stripe.</p>
+    <form action="/" method="get">
+      <div class="form-field">
+        <label for="amount">Amount (JPY)</label>
+        <input id="amount" name="amount" type="number" placeholder="Amount in JPY currency. (e.g. 1000)" required>
+      </div>
+      <div class="form-field">
+        <label for="reason">Reason</label>
+        <input id="reason" name="reason" type="text" placeholder="What do you pay me for? (e.g. GitHub repo)" value="{{reason}}">
+      </div>
+      <div class="form-field">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+    {% endif %}
+  </div>
+</body>
+</html>
