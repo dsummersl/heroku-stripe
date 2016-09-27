@@ -50,7 +50,7 @@ def charge():
         receipt_email=email,
         source=token,
         amount=amount,
-        currency='jpy',
+        currency='usd',
         description=reason,
     )
     return render_template('success.html')
