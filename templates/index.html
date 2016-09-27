@@ -82,7 +82,7 @@
   <div class="container">
     <h1 class="heading">Dane Summers</h1>
     {% if amount %}
-    <p class="heading">You are going to pay <strong>{{amount}}</strong> USD for <strong>{{reason}}</strong>.</p>
+    <p class="heading">You are going to pay $<strong>{{amount}}</strong> for <strong>{{reason}}</strong>.</p>
     <form class="stripe-form" action="/charge" method="post">
       <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="{{key}}"

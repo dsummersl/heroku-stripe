@@ -24,7 +24,7 @@ def index():
     amount = request.args.get('amount', 0)
     reason = request.args.get('reason', '')
     try:
-        amount = int(amount)
+        amount = int(amount * 100)
     except:
         amount = 0
 
@@ -49,7 +49,7 @@ def charge():
     stripe.Charge.create(
         receipt_email=email,
         source=token,
-        amount=amount * 100,
+        amount=amount,
         currency='usd',
         description=reason,
     )
