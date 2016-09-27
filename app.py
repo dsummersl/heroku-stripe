@@ -24,7 +24,7 @@ def index():
     amount = request.args.get('amount', 0)
     reason = request.args.get('reason', '')
     try:
-        amount = int(amount * 100)
+        amount = int(amount) * 100
     except:
         amount = 0
 
