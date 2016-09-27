@@ -49,7 +49,7 @@ def charge():
     stripe.Charge.create(
         receipt_email=email,
         source=token,
-        amount=amount,
+        amount=amount * 100,
         currency='usd',
         description=reason,
     )
