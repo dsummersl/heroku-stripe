@@ -80,28 +80,28 @@
 </head>
 <body>
   <div class="container">
-    <h1 class="heading">Hsiaoming Yang</h1>
+    <h1 class="heading">Dane Summers</h1>
     {% if amount %}
-    <p class="heading">You are going to pay <strong>{{amount}}</strong> JPY for <strong>{{reason}}</strong>.</p>
+    <p class="heading">You are going to pay <strong>{{amount}}</strong> USD for <strong>{{reason}}</strong>.</p>
     <form class="stripe-form" action="/charge" method="post">
       <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
         data-key="{{key}}"
             data-description="{{reason}}"
-            data-currency="jpy"
+            data-currency="usd"
             data-amount="{{amount}}"
             data-locale="auto">
       </script>
     </form>
     {% else %}
-    <p class="heading">Pay or donate to Hsiaoming Yang with Stripe.</p>
+    <p class="heading">Pay Dane Summers.</p>
     <form action="/" method="get">
       <div class="form-field">
-        <label for="amount">Amount (JPY)</label>
-        <input id="amount" name="amount" type="number" placeholder="Amount in JPY currency. (e.g. 1000)" required>
+        <label for="amount">Amount (USD)</label>
+        <input id="amount" name="amount" type="number" placeholder="Amount" required>
       </div>
       <div class="form-field">
         <label for="reason">Reason</label>
-        <input id="reason" name="reason" type="text" placeholder="What do you pay me for? (e.g. GitHub repo)" value="{{reason}}">
+        <input id="reason" name="reason" type="text" placeholder="Reason?" value="{{reason}}">
       </div>
       <div class="form-field">
         <button type="submit">Submit</button>
