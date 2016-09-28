@@ -1,0 +1,37 @@
+{
+    "name": "heroku-stripe",
+    "description": "Accept arbitrary payments with Stripe",
+    "repository": "https://github.com/dsummersl/heroku-stripe.git",
+    "logo": "https://node-js-sample.herokuapp.com/node.png",
+    "keywords": ["stripe", "payments", "python", "credit card"],
+    "env": {
+        "TITLE": {
+            "description": "Title of the website",
+            "value": "Payments"
+        },
+        "HEADER": {
+            "description": "Heading displayed on welcome page",
+            "value": "Payments"
+        },
+        "DETAIL": {
+            "description": "Brief instruction displayed above payments form",
+            "value": "Please supply payment amount and a brief description with your payment below:"
+        },
+        "EMAIL": {
+            "description": "Email displayed on the 'thank you' page.",
+            "value": "thanks@foo.com"
+        },
+        "EMAIL_NAME": {
+            "description": "Name of email recipient displayed on 'thank you' page.",
+            "value": "John Doe"
+        },
+        "STRIPE_PUB_KEY": {
+            "description": "Stripe API Public Key",
+            "value": "pk_XXX"
+        },
+        "STRIPE_SECRET_KEY": {
+            "description": "Stripe API Secret Key",
+            "value": "sk_XXX"
+        }
+    }
+}
