@@ -18,6 +18,11 @@ app.secret_key = os.getenv('SECRET_KEY', 'secret')
 stripe_pub_key = os.environ['STRIPE_PUB_KEY']
 stripe.api_key = os.environ['STRIPE_SECRET_KEY']
 
+title = os.environ['TITLE']
+header = os.environ['HEADER']
+detail = os.environ['DETAIL']
+email = os.environ['EMAIL']
+email_name = os.environ['EMAIL_NAME']
 
 @app.route('/')
 def index():
@@ -35,6 +40,9 @@ def index():
         key=stripe_pub_key,
         amount=amount,
         reason=reason,
+        title=title,
+        header=header,
+        detail=detail,
     )
 
 
@@ -53,7 +61,12 @@ def charge():
         currency='usd',
         description=reason,
     )
-    return render_template('success.html')
+    return render_template(
+        'success.html',
+        title=title,
+        email=email,
+        email_name=email_name
+    )
 
 
 @app.route('/robots.txt')

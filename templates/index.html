@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Payment</title>
+  <title>{{title}}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <style>
     html, body {
@@ -75,12 +75,15 @@
       p.heading {
         font-size: 16px;
       }
+      p.detail {
+        font-size: 12px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1 class="heading">Dane Summers</h1>
+    <h1 class="heading">{{header}}</h1>
     {% if amount %}
     <p class="heading">You are going to pay $<strong>{{amount}}</strong> for <strong>{{reason}}</strong>.</p>
     <form class="stripe-form" action="/charge" method="post">
@@ -93,6 +96,7 @@
       </script>
     </form>
     {% else %}
+    <p class="detail">{{detail}}</p>
     <form action="/" method="get">
       <div class="form-field">
         <label for="amount">Amount (USD)</label>
