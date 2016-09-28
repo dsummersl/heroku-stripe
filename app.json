@@ -1,7 +1,7 @@
 {
     "name": "heroku-stripe",
     "description": "Accept arbitrary payments with Stripe",
-    "repository": "https://github.com/dsummersl/heroku-stripe.git",
+    "repository": "https://github.com/dsummersl/heroku-stripe",
     "logo": "https://node-js-sample.herokuapp.com/node.png",
     "keywords": ["stripe", "payments", "python", "credit card"],
     "env": {
