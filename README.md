@@ -12,4 +12,4 @@ Register with stripe and use your [stripe API
 keys](https://dashboard.stripe.com/account/apikeys) when you click on the link
 below to launch your server:
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/dsummersl/heroku-stripe/tree/master)
